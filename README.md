@@ -16,27 +16,21 @@ Este proyecto implementa una biblioteca de Tensor en C++ que permite trabajar co
 Para compilar el proyecto, necesitas tener un compilador de C++ instalado (como `g++`). Ejecuta el siguiente comando en la terminal:
 
 ```bash
-g++ -std=c++17 -o programa main.cpp Tensor.cpp Transform.cpp
+g++ -std=c++17 -o tensor main.cpp Tensor.cpp Transform.cpp
 ```
 
-Si prefieres un compilador diferente como `clang`, también funciona igual:
+Y otra opción, usando CMakeLists.txt
 
 ```bash
-clang++ -std=c++17 -o programa main.cpp Tensor.cpp Transform.cpp
+mkdir build && cd build
+cmake ..
+make
 ```
 
 ## Cómo Ejecutar
 
-Una vez compilado, simplemente ejecuta el programa con:
+Una vez compilado, simplemente se ejecuta con:
 
 ```bash
-./programa
+./tensor
 ```
-
-El programa creará un tensor de entrada aleatorio de dimensiones 1000x20x20, lo pasará a través de una red neuronal simple con una capa oculta de 100 neuronas, y mostrará el resultado procesado con las activaciones ReLU y Sigmoid.
-
-## Notas
-
-- El proyecto usa características de C++17, así que asegúrate de compilar con el flag `-std=c++17` o superior
-- Los tensores soportan broadcasting limitado (suma con dimensiones 1xN en matrices)
-- La multiplicación de matrices (matmul) requiere que las dimensiones sean compatibles
